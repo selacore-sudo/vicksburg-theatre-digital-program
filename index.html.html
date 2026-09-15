@@ -1,0 +1,560 @@
+html
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Comedy of "Office" Errors, Digital Program</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&amp;family=Courier+Prime:wght@400;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg: #E4D3A6;
+    --bg-dark: #D8C494;
+    --paper: #F8F1E1;
+    --paper-shadow: rgba(43,36,56,0.18);
+    --ink: #2B2438;
+    --ink-soft: #4A4258;
+    --coral: #C2452E;
+    --sage: #5F7F5C;
+    --mustard: #E0A93B;
+    --line: rgba(43,36,56,0.22);
+    --font-display: 'Fraunces', serif;
+    --font-mono: 'Courier Prime', monospace;
+    --font-body: 'Work Sans', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse at top left, rgba(255,255,255,0.35), transparent 55%),
+      repeating-linear-gradient(0deg, rgba(43,36,56,0.02) 0px, rgba(43,36,56,0.02) 1px, transparent 1px, transparent 3px),
+      var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px 80px;}
+
+
+  /* ---------- stapler tribute ---------- */
+  .stapler-tribute{
+    background:var(--paper);
+    border:2px solid var(--ink);
+    box-shadow:0 10px 30px var(--paper-shadow);
+    margin:28px 0;
+    padding:28px 30px 30px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .stapler-fanfare{
+    font-family:var(--font-mono);
+    font-weight:700;
+    letter-spacing:.16em;
+    font-size:13px;
+    color:var(--coral);
+    margin-bottom:8px;
+  }
+  .stapler-title{
+    font-family:var(--font-display);
+    font-size:clamp(32px,6vw,56px);
+    line-height:1;
+    margin:0;
+    text-transform:uppercase;
+  }
+  .stapler-subtitle{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin:12px 0 22px;
+  }
+  .stapler-photo{
+    width:100%;
+    min-height:250px;
+    border:2px dashed var(--coral);
+    background:var(--bg-dark);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .stapler-caption{
+    margin:18px 0 0;
+    font-family:var(--font-display);
+    font-size:18px;
+    font-style:italic;
+  }
+
+  /* ---------- nav tabs ---------- */
+  .tabs{
+    position:sticky; top:0; z-index:50;
+    display:flex; gap:2px; padding:14px 24px 0;
+    max-width:920px; margin:0 auto;
+    background:linear-gradient(var(--bg) 78%, transparent);
+  }
+  .tabs a{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:.02em;
+    text-decoration:none;
+    color:var(--ink-soft);
+    background:var(--bg-dark);
+    padding:9px 14px 8px;
+    border:1px solid var(--line);
+    border-bottom:none;
+    border-radius:6px 6px 0 0;
+    position:relative;
+    top:1px;
+    transition:background .15s ease, color .15s ease;
+  }
+  .tabs a:hover{background:var(--paper); color:var(--ink);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--paper);
+    border:1px solid var(--line);
+    box-shadow:0 10px 30px var(--paper-shadow);
+    padding:38px 40px 34px;
+    margin-top:0;
+    position:relative;
+    animation:settle .5s ease-out;
+  }
+  @keyframes settle{
+    from{opacity:0; transform:translateY(-6px) rotate(-.3deg);}
+    to{opacity:1; transform:translateY(0) rotate(0);}
+  }
+  .memo-head{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--ink-soft);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px 24px;
+    border-bottom:1px dashed var(--line);
+    padding-bottom:12px; margin-bottom:22px;
+  }
+  .memo-head span b{color:var(--ink); font-weight:700;}
+  .stamp{
+    position:absolute; top:34px; right:38px;
+    font-family:var(--font-mono);
+    font-size:11px; letter-spacing:.08em;
+    color:var(--coral);
+    border:2px solid var(--coral);
+    border-radius:3px;
+    padding:5px 10px;
+    transform:rotate(6deg);
+    opacity:.85;
+  }
+  h1.title{
+    font-family:var(--font-display);
+    font-weight:900;
+    font-size:clamp(34px, 5.4vw, 56px);
+    line-height:1.02;
+    margin:0 0 6px;
+    max-width:11ch;
+  }
+  .subtitle{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-weight:500;
+    font-size:18px;
+    color:var(--ink-soft);
+    margin:0 0 22px;
+  }
+  .meta-row{
+    display:flex; flex-wrap:wrap; gap:18px 30px;
+    font-family:var(--font-mono); font-size:12.5px;
+    color:var(--ink-soft);
+    border-top:1px dashed var(--line);
+    padding-top:16px;
+  }
+  .meta-row div b{display:block; color:var(--ink); font-size:13.5px; margin-bottom:2px;}
+
+  /* ---------- sections ---------- */
+  .section{margin-top:34px;}
+  .section-head{
+    display:flex; align-items:baseline; gap:14px;
+    margin-bottom:16px;
+  }
+  .section-head .file-no{
+    font-family:var(--font-mono); font-size:12px; color:var(--coral); font-weight:700;
+  }
+  .section-head h2{
+    font-family:var(--font-display); font-weight:600; font-size:26px; margin:0;
+  }
+  .section-body{
+    background:var(--paper);
+    border:1px solid var(--line);
+    box-shadow:0 6px 18px var(--paper-shadow);
+    padding:28px 32px;
+  }
+  .section-body p{margin:0 0 14px; max-width:66ch;}
+  /* The Situation should use the full paper width so its margins read evenly. */
+  #memo .section-body p{max-width:none;}
+  .section-body p:last-child{margin-bottom:0;}
+  .editable{
+    background:rgba(224,169,59,0.22);
+    border-left:3px solid var(--mustard);
+    padding:12px 16px;
+    font-size:14px;
+    color:var(--ink-soft);
+    font-family:var(--font-mono);
+    margin-top:16px;
+  }
+
+  /* ---------- personnel cards ---------- */
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(210px,1fr));
+    gap:16px;
+  }
+  @media (min-width:900px){
+    .card-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+    .card-grid > :nth-child(3n+1):nth-last-child(2){grid-column:1;}
+    .card-grid > :nth-child(3n+2):last-child{grid-column:3;}
+    .card-grid > :nth-child(3n+1):last-child{grid-column:2;}
+  }
+  .id-card{
+    perspective:1200px;
+    height:250px;
+    cursor:pointer;
+  }
+  .id-card-inner{
+    position:relative; width:100%; height:100%;
+    transition:transform .55s cubic-bezier(.4,.2,.2,1);
+    transform-style:preserve-3d;
+  }
+  .id-card.flipped .id-card-inner{transform:rotateY(180deg);}
+  .id-face{
+    position:absolute; inset:0;
+    backface-visibility:hidden;
+    border:1px solid var(--line);
+    background:var(--paper);
+    padding:16px;
+    display:flex; flex-direction:column;
+  }
+  .id-face.front{box-shadow:0 4px 12px var(--paper-shadow);}
+  .id-face.back{
+    transform:rotateY(180deg);
+    background:var(--bg-dark);
+    justify-content:center;
+  }
+  .id-photo{
+    height:88px;
+    border:1px dashed var(--line);
+    background:repeating-linear-gradient(45deg, rgba(43,36,56,0.05) 0 6px, transparent 6px 12px);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono); font-size:10.5px; color:var(--ink-soft);
+    margin-bottom:12px;
+  }
+  .id-num{font-family:var(--font-mono); font-size:10.5px; color:var(--coral); margin-bottom:4px;}
+  .id-name{font-family:var(--font-display); font-weight:600; font-size:17px; margin:0 0 3px;}
+  .id-role{font-family:var(--font-mono); font-size:10px; color:var(--sage); margin:0 0 6px; letter-spacing:.01em;}
+  .id-tag{font-size:12px; color:var(--ink-soft); font-style:italic; margin:0;}
+  .id-flip-hint{margin-top:auto; font-family:var(--font-mono); font-size:10px; color:var(--ink-soft); opacity:.7;}
+  .id-face.back .id-name{font-size:14px; margin-bottom:8px;}
+  .id-face.back p{font-family:var(--font-mono); font-size:11.5px; color:var(--ink-soft); text-align:center; margin:0 10px;}
+
+  /* ---------- directory list ---------- */
+  .directory-list{list-style:none; margin:0; padding:0;}
+  .directory-list li{
+    display:flex; justify-content:space-between; gap:16px;
+    padding:12px 0;
+    border-bottom:1px dashed var(--line);
+    font-size:14.5px;
+  }
+  .directory-list li:last-child{border-bottom:none;}
+  .directory-list .role{font-family:var(--font-mono); font-size:12px; color:var(--ink-soft); text-align:right;}
+  .crew-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px,1fr));
+    gap:16px;
+    margin-top:16px;
+  }
+  .crew-card{
+    border:1px solid var(--line);
+    background:var(--bg-dark);
+    padding:16px 18px;
+  }
+  .crew-name{font-family:var(--font-display); font-weight:600; font-size:16.5px; margin:0 0 2px;}
+  .crew-role{font-family:var(--font-mono); font-size:11px; color:var(--coral); margin:0 0 10px; text-transform:uppercase; letter-spacing:.03em;}
+  .crew-bio{font-size:13.5px; color:var(--ink-soft); margin:0;}
+  .equipment-note{
+    margin-top:22px;
+    background:var(--bg-dark);
+    border:1px solid var(--line);
+    padding:16px 20px;
+  }
+  .equipment-note h3{
+    font-family:var(--font-mono); font-size:12px; text-transform:uppercase;
+    letter-spacing:.06em; margin:0 0 8px; color:var(--coral);
+  }
+
+  /* ---------- director note ---------- */
+  .director-section .section-body{
+    background:var(--paper);
+    position:relative;
+  }
+  .signoff{
+    margin-top:20px;
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:16px;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    margin-top:40px;
+    text-align:center;
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    color:var(--ink-soft);
+    line-height:1.8;
+  }
+  footer .sponsors{
+    margin-top:18px; padding-top:18px;
+    border-top:1px dashed var(--line);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .hero{animation:none;}
+    .id-card-inner{transition:none;}
+  }
+  @media (max-width:600px){
+    .hero{padding:26px 22px;}
+    .stamp{position:static; display:inline-block; margin-bottom:14px; transform:rotate(-2deg);}
+    .section-body{padding:22px 20px;}
+  }
+<style data-cast-credit="1">
+  .cast-credit{
+    margin:3px 0 9px;
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--coral);
+    letter-spacing:.02em;
+  }
+<style data-final-card-fix="1">
+  /* Final card layout pass: keep every description inside its card. */
+  .id-card{
+    perspective:1200px;
+    min-height:360px;
+    height:auto;
+    cursor:pointer;
+  }
+  .id-card-inner{
+    position:relative;
+    width:100%;
+    min-height:360px;
+    height:100%;
+    transition:transform .55s cubic-bezier(.4,.2,.2,1);
+    transform-style:preserve-3d;
+  }
+  .id-face{
+    position:absolute; inset:0;
+    min-height:360px;
+    box-sizing:border-box;
+    overflow:hidden;
+    backface-visibility:hidden;
+    border:1px solid var(--line);
+    background:var(--paper);
+    padding:16px;
+    display:flex; flex-direction:column;
+  }
+  .id-photo{
+    height:72px;
+    flex:0 0 72px;
+    border:1px dashed var(--line);
+    background:repeating-linear-gradient(45deg, rgba(43,36,56,0.05) 0 6px, transparent 6px 12px);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono); font-size:10.5px; color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  .id-tag{
+    font-size:11.5px;
+    line-height:1.42;
+    color:var(--ink-soft);
+    font-style:italic;
+    margin:0;
+  }
+  .cast-credit{
+    margin:4px 0 10px;
+    font-family:var(--font-mono);
+    font-size:13px;
+    font-weight:700;
+    color:var(--coral);
+    letter-spacing:.02em;
+  }
+  .equipment-note{
+    width:100%;
+    box-sizing:border-box;
+    margin:24px 0 0;
+    background:var(--bg-dark);
+    border:1px solid var(--line);
+    box-shadow:0 4px 12px var(--paper-shadow);
+    padding:20px 24px;
+  }
+  .equipment-note p{
+    margin:0;
+    max-width:none;
+    line-height:1.55;
+  }
+  @media (max-width:600px){
+    .id-card,
+    .id-card-inner,
+    .id-face{
+      min-height:380px;
+    }
+    .id-face{padding:15px;}
+    .id-photo{height:68px; flex-basis:68px;}
+    .id-tag{font-size:11.5px; line-height:1.42;}
+  }
+
+  /* Final card spacing: give each grid row real height so cards cannot overlap. */
+  .card-grid{
+    align-items:start;
+    row-gap:28px;
+  }
+  .id-card{
+    height:460px;
+    min-height:460px;
+    box-sizing:border-box;
+  }
+  .id-card-inner{
+    height:460px;
+    min-height:460px;
+  }
+  .id-face{
+    height:460px;
+    min-height:460px;
+    box-sizing:border-box;
+    overflow:hidden;
+  }
+  .id-photo{
+    height:76px;
+    flex:0 0 76px;
+    margin-bottom:10px;
+  }
+  .id-tag{
+    font-size:12px;
+    line-height:1.45;
+  }
+
+  /* Non-human cast box: consistent inset margins and full-width content. */
+  .equipment-note{
+    margin:28px 0 0;
+    padding:22px 26px;
+    box-sizing:border-box;
+  }
+  .equipment-note h3{
+    margin:0 0 10px;
+  }
+  .equipment-note p{
+    margin:0;
+    max-width:none;
+  }
+
+  @media (max-width:600px){
+    .card-grid{row-gap:24px;}
+    .id-card,
+    .id-card-inner,
+    .id-face{
+      height:460px;
+      min-height:460px;
+    }
+    .id-face{padding:16px;}
+    .cast-credit{font-size:13px;}
+  }
+
+</style></style>
+</head>
+<body>
+<nav class="tabs"><a href="#memo">The Memo</a><a href="#employees">The People Who Actually Work Here</a><a href="#stapler">The Stapler</a><a href="#nonpayroll">Not on the Payroll</a><a href="#corporate">The People from Corporate</a><a href="#podcast">No Cap Podcast</a><a href="#director">Director's Desk</a></nav>
+<div class="wrap">
+<header class="hero">
+<div class="stamp">APPROVED FOR<br/>PUBLIC VIEWING</div>
+<div class="memo-head">
+<span>TO: <b>Shareholders &amp; Guests</b></span>
+<span>FROM: <b>Ephesus Greeting Card Co., HR Dept.</b></span>
+<span>RE: <b>Tonight's Proceedings</b></span>
+</div>
+<h1 class="title">Comedy of "Office" Errors</h1>
+<p class="subtitle">Inspired by Shakespeare's A Comedy of Errors, relocated to the least funny place we could think of: an office.</p>
+<div class="meta-row">
+<div><b>Vicksburg Theatre Guild</b>91st Season</div>
+<div><b>Opens</b>September 18</div>
+<div><b>Venue</b>Parkside Playhouse, 101 Iowa Ave, Vicksburg</div>
+</div>
+</header>
+<section class="section" id="memo">
+<div class="section-head"><span class="file-no">FILE 01</span><h2>The Situation</h2></div>
+<div class="section-body">
+<p>It's an ordinary Tuesday at Ephesus Greeting Card Company, which, for this office, is never ordinary. Two corporate evaluators arrive to decide whether Ephesus deserves recognition as Office of the Year, and discover a floor built on a filing system nobody outside it understands, a copier with feelings, an elevator serviced by a furious man with a Scottish accent, and a coffee station that runs on affirmation as much as caffeine.</p>
+<p>A podcast crew shows up to document it all. A father walks in looking for two children he lost at a county fair fifteen years ago. Two kids no one remembers hiring run intelligence operations from the fanciest table in the building. Somewhere between a wellness seminar, a rigged card game, a missing trophy, and a very sincere argument about the color mauve, everyone in the building, evaluators included, has to decide what actually counts as the job.</p>
+<p>Inspired by Shakespeare's A Comedy of Errors, Comedy of "Office" Errors asks what happens when mistaken identity, misplaced loyalty, and complete sincerity collide in the last place you'd expect to find any of it: HR.</p>
+</div>
+</section>
+<section class="stapler-tribute" id="stapler">
+<div class="stapler-fanfare">✦ ✦ ✦  PLEASE RISE  ✦ ✦ ✦</div>
+<h2 class="stapler-title">The Stapler</h2>
+<p class="stapler-subtitle">An Instrument of Administrative Excellence</p>
+<div class="stapler-photo">Stapler photograph goes here</div>
+<p class="stapler-caption">Two feet of red. One stapler. Absolutely no further questions.</p>
+</section><section class="section" id="employees"><div class="section-head"><span class="file-no">FILE 02</span><h2>The People Who Actually Work Here</h2></div><div class="section-body"><p>Ephesus Greeting Card Company, Site Staff</p><div class="card-grid"><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #006</div><p class="id-name">Mr. Duke</p><p class="id-role">Site Manager / Elevator Repairman</p><p class="cast-credit">Brian Jordan</p><p class="id-tag">Duke runs the Ephesus site and answers to corporate. He believes deeply in the company and its people. He also has a secret second identity involving an elevator, a wrench, and a spectacular amount of yelling.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Brian Jordan</p><p>as Mr. Duke</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #001</div><p class="id-name">Andy Reyes</p><p class="id-role">Floor Lead</p><p class="cast-credit">Clarence Shelby</p><p class="id-tag">Technically in charge of the floor. Means well, panics easily, and gives himself pep talks out loud. Somehow, he keeps everyone moving.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Clarence Shelby</p><p>as Andy Reyes</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #002</div><p class="id-name">Drew Hallorhan</p><p class="id-role">Office Veteran</p><p class="cast-credit">Jordan Carey</p><p class="id-tag">Andy's steady right hand and the person who somehow always knows what is happening. Drew rarely rattles and appears to possess an internal map of Ephesus that nobody else was issued.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Jordan Carey</p><p>as Drew Hallorhan</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #005</div><p class="id-name">Dr. Petra Pinch</p><p class="id-role">Corporate Wellness Coordinator</p><p class="cast-credit">Nikki Ciciora</p><p class="id-tag">Every Tuesday, Dr. Pinch conducts a wellness seminar based on rules, theories, colors, stickers, and mystical concepts that exist nowhere outside Dr. Pinch's mind. She presents all of it with absolute confidence. She also sells her book in the lobby.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Nikki Ciciora</p><p>as Dr. Petra Pinch</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #008</div><p class="id-name">Adrianne Voss</p><p class="id-role">Communications Lead</p><p class="cast-credit">Erica Durst</p><p class="id-tag">Sharp, capable, permanently busy, and apparently in a long-running telephone relationship with someone named Derek. Adrianne spends most of her time managing disasters while pretending everyone around her is the disaster. She loves this place. She would prefer that nobody mention it.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Erica Durst</p><p>as Adrianne Voss</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #009</div><p class="id-name">Codie Doyle</p><p class="id-role">Copy Services</p><p class="cast-credit">River Durst</p><p class="id-tag">Codie has a relationship with the office copier that most people would consider unusually intimate. She listens to it with a stethoscope, talks to it, defends it, and knows things about the copier that perhaps nobody should know. There is also another copier.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">River Durst</p><p>as Codie Doyle</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #010</div><p class="id-name">Margo Hendricks</p><p class="id-role">Records &amp; Filing</p><p class="cast-credit">Mary Claire Allison</p><p class="id-tag">Margo takes the filing system seriously. Very seriously. She is initially skeptical of Peter's proposed mauve section, but repeated exposure to the concept has produced troubling results.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Mary Claire Allison</p><p>as Margo Hendricks</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #011</div><p class="id-name">Peter Feeny</p><p class="id-role">Records &amp; Filing</p><p class="cast-credit">Marsh Fitzroy</p><p class="id-tag">Peter has a vision for the filing system. It involves mauve. He has diagrams. He has a model. He has thoughts about traffic flow. He has apparently been waiting years for someone to appreciate the importance of this.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Marsh Fitzroy</p><p>as Peter Feeny</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #012</div><p class="id-name">Lucy Hartman</p><p class="id-role">Coffee Station</p><p class="cast-credit">Brittany Meacham</p><p class="id-tag">Lucy runs the coffee station, distributes laminated encouragement, and appears to believe that most workplace problems can be improved with sufficient caffeine and a positive attitude. She may be onto something.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Brittany Meacham</p><p>as Lucy Hartman</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #013</div><p class="id-name">Trevor Whitlock</p><p class="id-role">Six-Month New Guy</p><p class="cast-credit">John Ryan Hearn</p><p class="id-tag">Trevor has been at Ephesus for six months. He still doesn't have a real desk. He would very much like someone to notice him.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">John Ryan Hearn</p><p>as Trevor Whitlock</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #020</div><p class="id-name">Quinn Marsh</p><p class="id-role">Temporary Employee</p><p class="cast-credit">Bella Welch</p><p class="id-tag">Quinn arrived from a temp agency with essentially no training, no desk, and a telephone. She begins the day trying to figure out what exactly she has been hired to do. By Act Two, she is providing live commentary on the office like she is calling the championship game.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Bella Welch</p><p>as Quinn Marsh</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #014</div><p class="id-name">Ivy Sorrel</p><p class="id-role">Plant Specialist</p><p class="cast-credit">Sophia Tuminello</p><p class="id-tag">Ivy understands plants, people, and apparently Mortimer on a level the rest of the office cannot quite comprehend. Zoe is learning the plant trade under her supervision. The plants seem to approve.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Sophia Tuminello</p><p>as Ivy Sorrel</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #015</div><p class="id-name">Officer Barrier</p><p class="id-role">Safety Officer</p><p class="cast-credit">Gena Goodson</p><p class="id-tag">Self-appointed. Officer Barrier has never actually stopped an accident, but she has placed a cone near one and documented the event for posterity. Every incident becomes part of the historical record.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Gena Goodson</p><p>as Officer Barrier</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #017</div><p class="id-name">Ethan Rollins</p><p class="id-role">Office Runner</p><p class="cast-credit">Stafford Truesdell</p><p class="id-tag">Ethan rolls through, delivers something, announces a strange fact, and disappears. He is also quietly doing something else. Nobody seems particularly concerned about this.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Stafford Truesdell</p><p>as Ethan Rollins</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #018</div><p class="id-name">Mason Alders</p><p class="id-role">Office Observer</p><p class="cast-credit">Micah O'Dell</p><p class="id-tag">Mason watches Ephesus like a nature documentary. He observes. He narrates. He occasionally participates. When Mason finally decides to get involved, it matters.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Micah O'Dell</p><p>as Mason Alders</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #016</div><p class="id-name">Zoe Franklin</p><p class="id-role">Plant Assistant</p><p class="cast-credit">Allyson Moore</p><p class="id-tag">The newest member of the office and Ivy's apprentice. Zoe is still figuring out both the plants and the people, which may actually be the more complicated assignment.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Allyson Moore</p><p>as Zoe Franklin</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #026</div><p class="id-name">Janice Dunmore</p><p class="id-role">Janitorial Services</p><p class="cast-credit">Andrea Weaver</p><p class="id-tag">Janice is responsible for cleaning the office. Janice approaches this responsibility creatively. Very creatively. She also manages to solve one of Ephesus's longest-running mysteries almost entirely by accident.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Andrea Weaver</p><p>as Janice Dunmore</p></div></div></div></div></div></section><section class="section" id="nonpayroll"><div class="section-head"><span class="file-no">FILE 03</span><h2>Not on the Payroll</h2></div><div class="section-body"><p>Still Somehow On The Floor</p><div class="card-grid"><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #007</div><p class="id-name">Gene</p><p class="id-role">Guest / Father / Ongoing Search Party</p><p class="cast-credit">Logan Huston</p><p class="id-tag">Gene arrives at Ephesus looking for two grown children he lost at a county fair fifteen years ago. His stories wander. Frequently. The important thing is that they eventually get somewhere. And, against considerable odds, so does Gene.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Logan Huston</p><p>as Gene</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #019</div><p class="id-name">Milton Sharpe</p><p class="id-role">Office Fixture</p><p class="cast-credit">Jeff Durst</p><p class="id-tag">Milton is not exactly an employee. He is, however, permanently installed. A cardshark with a fondness for the 1960s, Milton teaches the younger members of the office how to play cards while cheating them with astonishing confidence.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Jeff Durst</p><p>as Milton Sharpe</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #021</div><p class="id-name">Wren “Funyon” Smith</p><p class="id-role">Unofficial Operations Division</p><p class="cast-credit">Katie Whittington</p><p class="id-tag">Wren is not employed by Ephesus. This has not stopped her from running covert operations from the fanciest table in the building. Every errand is a mission. Every mission has a code name. Every code name is serious.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Katie Whittington</p><p>as Wren “Funyon” Smith</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #022</div><p class="id-name">Finn “Fishy Poofs” Smith</p><p class="id-role">Unofficial Operations Division</p><p class="cast-credit">Indigo Cody</p><p class="id-tag">Wren's partner, sister, and fellow operative. Together, they conduct highly classified business from a table that is considerably nicer than anything the actual employees were given. Same outfit. Same walkie-talkie. Same absolute commitment to the mission.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Indigo Cody</p><p>as Finn “Fishy Poofs” Smith</p></div></div></div></div></div></section><section class="section" id="corporate"><div class="section-head"><span class="file-no">FILE 04</span><h2>The People from Corporate</h2></div><div class="section-body"><p>They Were Sent to Evaluate Us. Please Pray For Them.</p><div class="card-grid"><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #003</div><p class="id-name">Andrew Epherson</p><p class="id-role">Corporate Evaluator</p><p class="cast-credit">Preston Lanier</p><p class="id-tag">He has a degree, a notebook, and a very specific idea of what a successful office should look like. Ephesus is not helping.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Preston Lanier</p><p>as Andrew Epherson</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #004</div><p class="id-name">Drewlynn Lucas</p><p class="id-role">Corporate Evaluator</p><p class="cast-credit">Shanna Dixon</p><p class="id-tag">Organized, skeptical, and prepared to judge Ephesus according to an actual system. Then she meets the people who work there. Her evaluation becomes considerably more complicated.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Shanna Dixon</p><p>as Drewlynn Lucas</p></div></div></div></div></div></section><section class="section" id="podcast"><div class="section-head"><span class="file-no">FILE 05</span><h2>No Cap Podcast</h2></div><div class="section-body"><p>Because Apparently Someone Thought This Needed to Be Documented.</p><div class="card-grid"><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #023</div><p class="id-name">Brayden Cole</p><p class="id-role">Host, No Cap Podcast</p><p class="cast-credit">Arwen Durst</p><p class="id-tag">Brayden sees a story everywhere. Unfortunately, most of those stories are happening in an office. That has never stopped him from treating them like breaking news.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Arwen Durst</p><p>as Brayden Cole</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #024</div><p class="id-name">Skye Larsen</p><p class="id-role">Production / Documentation</p><p class="cast-credit">Kennedy Corkern</p><p class="id-tag">Skye keeps the operation organized with timestamps, captions, hashtags, and whatever else the modern media ecosystem apparently requires.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Kennedy Corkern</p><p>as Skye Larsen</p></div></div></div><div class="id-card" onclick="this.classList.toggle('flipped')"><div class="id-card-inner"><div class="id-face front"><div class="id-photo">PHOTO</div><div class="id-num">EMP #025</div><p class="id-name">Jaxon Price</p><p class="id-role">Crew</p><p class="cast-credit">Blake Parker</p><p class="id-tag">Jaxon has very little to say. Until he does. And when he finally does, he manages to say exactly the one thing that will stick with everyone.</p><div class="id-flip-hint">tap to flip →</div></div><div class="id-face back"><p class="id-name">Blake Parker</p><p>as Jaxon Price</p></div></div></div></div></div></section>
+<section class="section" id="crew">
+<div class="section-head"><span class="file-no">FILE 06</span><h2>Behind the Scenes</h2></div>
+<div class="section-body">
+<p>The people keeping this Tuesday running on schedule, more or less.</p>
+<div class="crew-grid">
+<div class="crew-card">
+<p class="crew-name">Sarah Goss</p>
+<p class="crew-role">Director &amp; Playwright</p>
+<p class="crew-bio">Wrote the whole memo. Now responsible for making twenty-six people believe it. Knows exactly which door sticks, which light cue lies, and which actor will lose their glasses mid-show. Insists she's fine.</p>
+</div>
+<div class="crew-card">
+<p class="crew-name">Garrett Lee</p>
+<p class="crew-role">Assistant Director &amp; Sound</p>
+<p class="crew-bio">Officially, Assistant Director. Unofficially, the reason the elevator has an accent and the copier has feelings. If it makes a sound tonight, Garrett built it and is somewhere backstage hoping it still works.</p>
+</div>
+<div class="crew-card">
+<p class="crew-name">Eli Seratt</p>
+<p class="crew-role">Assistant Director &amp; Notes</p>
+<p class="crew-bio">Takes notes on everything, blocking, line reads, who owes whom a snack, and somehow makes all of it sound encouraging. If tonight runs smoothly, it's because Eli wrote it down first.</p>
+</div>
+<div class="crew-card">
+<p class="crew-name">Chloe Shields</p>
+<p class="crew-role">Lighting</p>
+<p class="crew-bio">Decides what you get to see and when, a lot of power for one person to have over twenty-six actors and one very dramatic elevator. Has never once let the room go dark at the wrong moment. Ask her how close it's been.</p>
+</div>
+<div class="crew-card">
+<p class="crew-name">McKenna Lanier</p>
+<p class="crew-role">Stage Manager</p>
+<p class="crew-bio">The actual person in charge, regardless of what any job title suggests. Tracks every prop, every cue, and every human in this building, often all three at once, often while several of them hide from her on purpose.</p>
+</div>
+<div class="crew-card"><p class="crew-name">Mike Calnan</p><p class="crew-role">Keeper of All Things</p><p class="crew-bio">Keeps the theatre running, fixes what needs fixing, finds what nobody else can find, and somehow makes the whole place work. Without Mike, we would be lost.</p></div></div>
+<div class="equipment-note">
+<h3>Non-human cast, credited by request</h3>
+<p>The Copier and The Elevator both have full vocal parts, built from custom synthesized sound cues. They asked to be listed here. We obliged.</p>
+</div>
+</div>
+</section>
+<section class="section director-section" id="director">
+<div class="section-head"><span class="file-no">FILE 07</span><h2>Director's Desk</h2></div>
+<div class="section-body">
+<div class="editable">EDITABLE, paste your actual director's note here. Placeholder below shows roughly how much space it has.</div>
+<p style="margin-top:18px;">[Director's note goes here, a few short paragraphs on the show, the season, or why an office was the right place to stage this.]</p>
+<p class="signoff">Sarah Goss, Director &amp; Playwright</p>
+</div>
+</section>
+<footer>
+    Vicksburg Theatre Guild · 91st Season · Parkside Playhouse, 101 Iowa Avenue, Vicksburg, MS
+    <div class="sponsors">[Sponsor / donor acknowledgment row, optional, remove if not needed]</div>
+</footer>
+</div>
+</body>
+</html>
